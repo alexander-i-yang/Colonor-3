@@ -1,0 +1,120 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Actor",
+"language": "GDScript",
+"path": "res://src/Actors/Actor.gd"
+}, {
+"base": "Sprite",
+"class": "Building",
+"language": "GDScript",
+"path": "res://src/Buildings/Building.gd"
+}, {
+"base": "Sprite",
+"class": "BuildingPlacer",
+"language": "GDScript",
+"path": "res://src/Buildings/BuildingPlacer.gd"
+}, {
+"base": "Actor",
+"class": "Player",
+"language": "GDScript",
+"path": "res://src/Actors/Player.gd"
+}, {
+"base": "Sprite",
+"class": "RawCrystal",
+"language": "GDScript",
+"path": "res://src/Resources/RawCrystal.gd"
+}, {
+"base": "NinePatchRect",
+"class": "ResourceManager",
+"language": "GDScript",
+"path": "res://src/Resources/ResourceManager.gd"
+}, {
+"base": "Actor",
+"class": "Rover",
+"language": "GDScript",
+"path": "res://src/Actors/Rover.gd"
+}, {
+"base": "Building",
+"class": "Rover_Garage",
+"language": "GDScript",
+"path": "res://src/Buildings/Rover Garage.gd"
+}, {
+"base": "Building",
+"class": "SolarPanel",
+"language": "GDScript",
+"path": "res://src/Buildings/SolarPanel.gd"
+}, {
+"base": "TileMap",
+"class": "UIGrid",
+"language": "GDScript",
+"path": "res://src/UI/Grid.gd"
+} ]
+_global_script_class_icons={
+"Actor": "",
+"Building": "",
+"BuildingPlacer": "",
+"Player": "",
+"RawCrystal": "",
+"ResourceManager": "",
+"Rover": "",
+"Rover_Garage": "",
+"SolarPanel": "",
+"UIGrid": ""
+}
+
+[application]
+
+config/name="Colonor"
+run/main_scene="res://src/Levels/TestLevel.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[gdnative]
+
+singletons=[  ]
+
+[input]
+
+move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="world"
+2d_physics/layer_3="enemies"
+2d_physics/layer_4="buildings"
+
+[rendering]
+
+quality/2d/use_pixel_snap=true
+environment/default_environment="res://default_env.tres"

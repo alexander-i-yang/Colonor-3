@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Resources/RawCrystal.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/Crystal Mine/crystal.png" type="Texture" id=2]
+
+[node name="Crystal" type="Sprite"]
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -139, 31 )
+z_index = 1
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 138, -52, 147, -43, 147, -27, 151, -31, 159, -31, 159, -23, 147, -11, 131, -11, 119, -23, 119, -31, 127, -31, 129, -29, 129, -43 )
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

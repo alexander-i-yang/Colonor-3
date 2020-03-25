@@ -1,0 +1,109 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Resources/ResourceManager.gd" type="Script" id=1]
+
+[node name="NinePatchRect" type="NinePatchRect"]
+margin_right = 20.0
+margin_bottom = 20.0
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Crystal" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 59.0
+margin_bottom = 14.0
+
+[node name="Id" type="Label" parent="VBoxContainer/Crystal"]
+margin_right = 43.0
+margin_bottom = 14.0
+text = "Crystal"
+
+[node name="Num" type="Label" parent="VBoxContainer/Crystal"]
+margin_left = 47.0
+margin_right = 55.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="PerSecond" type="Label" parent="VBoxContainer/Crystal"]
+margin_left = 59.0
+margin_right = 59.0
+margin_bottom = 14.0
+
+[node name="Energy" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 59.0
+margin_bottom = 32.0
+
+[node name="Id" type="Label" parent="VBoxContainer/Energy"]
+margin_right = 42.0
+margin_bottom = 14.0
+text = "Energy"
+
+[node name="Num" type="Label" parent="VBoxContainer/Energy"]
+margin_left = 46.0
+margin_right = 54.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="PerSecond" type="Label" parent="VBoxContainer/Energy"]
+margin_left = 58.0
+margin_right = 58.0
+margin_bottom = 14.0
+
+[node name="Pop" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 36.0
+margin_right = 59.0
+margin_bottom = 50.0
+
+[node name="Id" type="Label" parent="VBoxContainer/Pop"]
+margin_right = 24.0
+margin_bottom = 14.0
+text = "Pop"
+
+[node name="Num" type="Label" parent="VBoxContainer/Pop"]
+margin_left = 28.0
+margin_right = 36.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="PerSecond" type="Label" parent="VBoxContainer/Pop"]
+margin_left = 40.0
+margin_right = 40.0
+margin_bottom = 14.0
+
+[node name="Tech" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 54.0
+margin_right = 59.0
+margin_bottom = 68.0
+
+[node name="Id" type="Label" parent="VBoxContainer/Tech"]
+margin_right = 30.0
+margin_bottom = 14.0
+text = "Tech"
+
+[node name="Num" type="Label" parent="VBoxContainer/Tech"]
+margin_left = 34.0
+margin_right = 42.0
+margin_bottom = 14.0
+text = "0"
+
+[node name="PerSecond" type="Label" parent="VBoxContainer/Tech"]
+margin_left = 46.0
+margin_right = 46.0
+margin_bottom = 14.0
