@@ -51,8 +51,13 @@ func get_closest_crystal(pos):
 	var children = []
 	for i in get_children():
 		children.append(i)
-	children.sort_custom(self, "sort_ascending")
+	crystal_coord_helper = pos
+	children.sort_custom(self, "sort_ascending_x")
+	for i in children:
+		print("\t", i.position, i.position.x-pos.x)
 	return children[0]
 
-func sort_ascending(a, b):
-	return a.position-crystal_coord_helper < b.position-crystal_coord_helper
+func sort_ascending_x(a, b):
+	var d_a = abs(a.position.x-crystal_coord_helper.x)
+	var d_b = abs(b.position.x-crystal_coord_helper.x)
+	return d_a < d_b

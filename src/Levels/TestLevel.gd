@@ -81,12 +81,18 @@ func _input(event):
 		var evLocal = make_input_local(event)
 		if placing_building:
 			_place_building()
+	elif (event is InputEventKey) and event.scancode == KEY_SPACE:
+		for member in get_tree().get_nodes_in_group("vehicles"):
+			if member.is_player_overlap():
+				member.mount()
+				
 
 func _on_Control_building_button_pressed(id, path_to_scene):
-	var ui_grid = _show_ui_grid()
-	placing_building = true
-	var new_building = _get_sprite(path_to_scene)
-	# Check to see if the building needs a reference to the crystal manager
-	if new_building.name == "RoverGarage":
-		new_building.crystal_manager = raw_crystal_manager
-	_make_placeable_building(id, new_building)
+	if not placing_building:
+		var ui_grid = _show_ui_grid()
+		placing_building = true
+		var new_building = _get_sprite(path_to_scene)
+		# Check to see if the building needs a reference to the crystal manager
+		if new_building.name == "RoverGarage":
+			new_building.crystal_manager = raw_crystal_manager
+		_make_placeable_building(id, new_building)

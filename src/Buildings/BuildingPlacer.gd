@@ -7,7 +7,7 @@ onready var _player = $"/root/TestLevel/Player"
 onready var _player_pos = _get_player_pos()
 onready var _placed = false
 var snap_to_grid
-var _sprite 
+var _sprite
 
 func _ready():
 	if not _sprite:

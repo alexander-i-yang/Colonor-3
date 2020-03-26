@@ -39,8 +39,9 @@ func _ready():
 			"pressed",
 			self,
 			"_building_button_pressed",
-			[id, path_to_scene]
+			[id, path_to_scene, button]
 		)
 
-func _building_button_pressed(id, path):
+func _building_button_pressed(id, path, button):
 	emit_signal("building_button_pressed", id, path)
+	button.release_focus()

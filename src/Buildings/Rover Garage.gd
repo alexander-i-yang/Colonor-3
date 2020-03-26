@@ -20,7 +20,5 @@ func spawn_rover():
 	rover_pos.y -= new_rover.get_node("ColorRect").get_size().y
 	new_rover.position = rover_pos
 	# Set the rover's crystal manager
-	new_rover.set_crystal_manager(crystal_manager)
 	add_child(new_rover)
-	for i in get_children():
-		print("Position for ", i, i.position)
+	new_rover.set_crystal_manager(crystal_manager)

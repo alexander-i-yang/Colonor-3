@@ -14,7 +14,7 @@
 [ext_resource path="res://assets/images/Avatar/Walking 09.png" type="Texture" id=12]
 [ext_resource path="res://assets/images/Avatar/Walking 10.png" type="Texture" id=13]
 
-[sub_resource type="AnimatedTexture" id=3]
+[sub_resource type="AnimatedTexture" id=1]
 flags = 4
 frames = 12
 frame_0/texture = ExtResource( 1 )
@@ -41,13 +41,14 @@ frame_10/delay_sec = 0.0
 frame_11/texture = ExtResource( 11 )
 frame_11/delay_sec = 0.0
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 9, 31 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 31 )
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 6
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [ -30.0 ]
@@ -68,17 +69,20 @@ drag_margin_right = 0.0
 
 [node name="Walking 00" type="Sprite" parent="."]
 scale = Vector2( 0.548387, 0.548387 )
-texture = SubResource( 3 )
+texture = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
+one_way_collision = true
 
-[node name="EnemDetector" type="Area2D" parent="."]
+[node name="InteractableDetector" type="Area2D" parent="."]
+collision_mask = 28
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableDetector"]
 modulate = Color( 0.141176, 0.745098, 0.137255, 1 )
 show_behind_parent = true
 position = Vector2( 0, 1 )
-shape = SubResource( 2 )
-[connection signal="area_entered" from="EnemDetector" to="." method="_on_EnemDetector_area_entered"]
-[connection signal="body_entered" from="EnemDetector" to="." method="_on_EnemDetector_body_entered"]
+shape = SubResource( 3 )
+one_way_collision = true
+[connection signal="area_entered" from="InteractableDetector" to="." method="_on_InteractableDetector_area_entered"]
+[connection signal="body_entered" from="InteractableDetector" to="." method="_on_InteractableDetector_body_entered"]

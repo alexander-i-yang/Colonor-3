@@ -1,11 +1,27 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Actors/Rover.gd" type="Script" id=1]
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 28, 28 )
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
 
-[node name="Rover" type="KinematicBody2D"]
+void fragment() {
+	COLOR = texture(TEXTURE, UV);
+	COLOR.a = 0.5;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 20, 20 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 20, 20 )
+
+[node name="Rover" type="KinematicBody2D" groups=[
+"vehicles",
+]]
 collision_layer = 16
 collision_mask = 2
 script = ExtResource( 1 )
@@ -14,10 +30,12 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -28.0
-margin_top = -28.0
-margin_right = 28.0
-margin_bottom = 28.0
+material = SubResource( 2 )
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+color = Color( 1, 1, 0.627451, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -34,4 +52,13 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+
+[node name="PlayerPass" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerPass"]
+rotation = 3.14159
 shape = SubResource( 4 )
+[connection signal="body_entered" from="PlayerPass" to="." method="_on_PlayerPass_body_entered"]
+[connection signal="body_exited" from="PlayerPass" to="." method="_on_Area2D_body_exited"]

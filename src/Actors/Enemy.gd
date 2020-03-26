@@ -13,5 +13,5 @@ func _on_StompDetector_body_entered(body: PhysicsBody2D) -> void:
 func _physics_process(delta: float) -> void:
 	if is_on_wall():
 		_velocity.x *= -1.0
-	._physcics_process(delta)
+	._physics_process(delta)
 	
